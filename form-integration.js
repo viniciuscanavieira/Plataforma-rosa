@@ -24,7 +24,6 @@ form.addEventListener("submit", async function(e){
   btnText.innerText = "Enviando...";
 
   try{
-    // 🔥 AQUI ESTÁ A CORREÇÃO
     const formData = new FormData();
     formData.append("nome", nome);
     formData.append("email", email);
@@ -42,7 +41,7 @@ form.addEventListener("submit", async function(e){
       successBox.style.display = "block";
 
       setTimeout(()=>{
-        window.location.href = "https://wa.me/98970292559?text=Olá, gostaria de mais informações sobre o Curso  Bacharel Livre em Teologia - Doksa";
+        window.location.href = "https://chat.whatsapp.com/EQkKm2bh2H0J7WK5BglsFs?mode=gi_t";
       }, 1000);
 
     }else{
