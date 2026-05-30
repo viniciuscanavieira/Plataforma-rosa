@@ -36,13 +36,14 @@ body::before{
 
 /* ── NAV ── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:9999;
   padding:22px 60px;
   display:flex;align-items:center;justify-content:space-between;
+  background:rgba(13,13,13,.92);
   transition:background .35s,padding .35s;
 }
 nav.stuck{
-  background:rgba(13,13,13,.96);
+  background:rgba(13,13,13,.98);
   backdrop-filter:blur(12px);
   padding:14px 60px;
   border-bottom:1px solid rgba(200,169,81,.14);
@@ -677,7 +678,7 @@ footer{
 <section class="sec" style="padding-bottom:0">
   <div class="si2 tc rv">
     <div class="vid-box">
-      <iframe id="pastor-video" width="100%" height="100%" src="about:blank" title="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <iframe id="pastor-video" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/UdB6KWftpK0?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" loading="eager" title="Vídeo do Instituto Teológico Doksa" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -950,6 +951,7 @@ footer{
       </div>
 
       <div id="form-fields" >
+        <span id="inscricao"></span>
         <span class="form-card-label">Garanta sua vaga</span>
         <div class="form-card-title">Preencha seus dados</div>
         <div class="form-card-sub">Em seguida você receberá todas as informações e será direcionado ao nosso grupo no WhatsApp.</div>
@@ -1015,19 +1017,9 @@ document.querySelectorAll('.rv,.rl,.rr').forEach(el=>obs.observe(el));
 
 const videoIframe=document.getElementById('pastor-video');
 if(videoIframe){
-  const videoObserver=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        videoIframe.src='https://www.youtube-nocookie.com/embed/UdB6KWftpK0?autoplay=1&controls=1&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1';
-        setTimeout(()=>{
-          const videoBox = videoIframe.closest('.vid-box');
-          if(videoBox) videoBox.classList.add('visible');
-        },2000);
-        videoObserver.unobserve(videoIframe);
-      }
-    });
-  },{threshold:0.25});
-  videoObserver.observe(videoIframe);
+  videoIframe.src='https://www.youtube-nocookie.com/embed/UdB6KWftpK0?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0';
+  const videoBox = videoIframe.closest('.vid-box');
+  if(videoBox) videoBox.classList.add('visible');
 }
 
 let currentSlide = 0;
