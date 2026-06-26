@@ -17,7 +17,7 @@ Landing page moderna e responsiva para o curso online de teologia "Plataforma Ro
 
 ```
 pagina rosa/
-├── plataforma-rosa-ui-reference.html  # HTML principal
+├── plataforma-rosa.html  # HTML principal
 ├── styles.css                          # Estilos CSS
 ├── scripts.js                          # JavaScript (animações e interatividade)
 ├── imagens/                            # Fotos das professoras
@@ -41,7 +41,7 @@ O site estará disponível em: `https://doksa-pagina1.vercel.app/`
 
 ## 📸 Imagens das Professoras
 
-Para adicionar as fotos das professoras, substitua os caminhos em `plataforma-rosa-ui-reference.html`:
+Para adicionar as fotos das professoras, substitua os caminhos em `plataforma-rosa.html`:
 - `images/prof-a.png` → Miss. Aderian Henrique
 - `images/prof-t.png` → Profa. Tereza Silva
 - `images/prof-r.png` → Profa. Rejane Sousa
