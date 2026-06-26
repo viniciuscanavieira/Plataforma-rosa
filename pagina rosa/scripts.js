@@ -19,40 +19,67 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-/* Grade auto-scroll suave */
+/* Grade carousel controls */
 const gradeScroll = document.querySelector('.grade-scroll');
-if (gradeScroll && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const gradeItem = gradeScroll.querySelector('.grade-item');
-  const itemHeight = gradeItem ? gradeItem.offsetHeight + 24 : 220;
-  const maxScroll = () => gradeScroll.scrollHeight - gradeScroll.clientHeight;
-  let autoScrollTimer = null;
+const gradePrev = document.querySelector('.carousel-prev');
+const gradeNext = document.querySelector('.carousel-next');
 
-  const scrollNext = () => {
-    if (gradeScroll.scrollTop >= maxScroll() - 2) {
-      gradeScroll.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      gradeScroll.scrollTo({ top: Math.min(gradeScroll.scrollTop + itemHeight, maxScroll()), behavior: 'smooth' });
+if (gradeScroll) {
+  const getGradeScrollDistance = () => {
+    const firstItem = gradeScroll.querySelector('.grade-item');
+    if (!firstItem) return 320;
+    const itemWidth = firstItem.offsetWidth;
+    const gap = 18;
+    const viewportWidth = gradeScroll.clientWidth;
+    const itemsPerView = Math.max(1, Math.floor(viewportWidth / (itemWidth + gap)));
+    return itemsPerView * (itemWidth + gap);
+  };
+
+  const scrollLeft = () => {
+    gradeScroll.scrollBy({ left: -getGradeScrollDistance(), behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    gradeScroll.scrollBy({ left: getGradeScrollDistance(), behavior: 'smooth' });
+  };
+
+  gradePrev?.addEventListener('click', scrollLeft);
+  gradeNext?.addEventListener('click', scrollRight);
+
+  gradeScroll.addEventListener('wheel', (event) => {
+    if (Math.abs(event.deltaX) < Math.abs(event.deltaY)) {
+      gradeScroll.scrollBy({ left: event.deltaY, behavior: 'smooth' });
+      event.preventDefault();
     }
+  }, { passive: false });
+}
+
+/* Prof carousel controls */
+const profScroll = document.querySelector('.prof-scroll');
+const profPrev = document.querySelector('.prof-prev');
+const profNext = document.querySelector('.prof-next');
+
+if (profScroll) {
+  const getProfScrollDistance = () => {
+    const firstItem = profScroll.querySelector('.prof-item');
+    if (!firstItem) return 280;
+    const itemWidth = firstItem.offsetWidth;
+    const gap = 18;
+    const viewportWidth = profScroll.clientWidth;
+    const itemsPerView = Math.max(1, Math.floor(viewportWidth / (itemWidth + gap)));
+    return itemsPerView * (itemWidth + gap);
   };
 
-  const startAutoScroll = () => {
-    if (autoScrollTimer) return;
-    autoScrollTimer = setInterval(scrollNext, 4200);
+  const profScrollLeft = () => {
+    profScroll.scrollBy({ left: -getProfScrollDistance(), behavior: 'smooth' });
   };
 
-  const stopAutoScroll = () => {
-    if (autoScrollTimer) {
-      clearInterval(autoScrollTimer);
-      autoScrollTimer = null;
-    }
+  const profScrollRight = () => {
+    profScroll.scrollBy({ left: getProfScrollDistance(), behavior: 'smooth' });
   };
 
-  gradeScroll.addEventListener('mouseenter', stopAutoScroll, { passive: true });
-  gradeScroll.addEventListener('wheel', stopAutoScroll, { passive: true });
-  gradeScroll.addEventListener('touchstart', stopAutoScroll, { passive: true });
-  gradeScroll.addEventListener('mouseleave', startAutoScroll, { passive: true });
-
-  startAutoScroll();
+  profPrev?.addEventListener('click', profScrollLeft);
+  profNext?.addEventListener('click', profScrollRight);
 }
 
 
