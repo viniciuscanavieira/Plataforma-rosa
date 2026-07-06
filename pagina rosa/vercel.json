@@ -1,5 +1,11 @@
 {
   "buildCommand": "echo 'Static site - no build needed'",
   "outputDirectory": ".",
-  "public": false
+  "public": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/plataforma-rosa.html"
+    }
+  ]
 }
