@@ -30,7 +30,8 @@ pagina rosa/
 ## 🚀 Deploy
 
 ### GitHub
-- Repositório: https://github.com/viniciuscanavieira/Doksa-pagina1
+- Repositório: https://github.com/viniciuscanavieira/Plataforma-rosa
+
 
 ### Vercel
 1. Conecte seu repositório GitHub ao Vercel
