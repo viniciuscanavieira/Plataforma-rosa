@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obrigada por se matricular | Plataforma Rosa</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    :root {
+      --rosa: #C96B8F;
+      --rosa-vivo: #E07EA8;
+      --vinho: #8B3A5A;
+      --ameixa: #2A1220;
+      --creme: #FEF9FB;
+      --cinza-quente: #6B5059;
+      --linha: rgba(43, 18, 32, 0.08);
+    }
+
+    body.thank-you-page {
+      margin: 0;
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: linear-gradient(135deg, #fff 0%, var(--creme) 100%);
+      color: var(--ameixa);
+      min-height: 100vh;
+    }
+
+    .thank-you-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 96px 24px 80px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .thank-you-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--linha);
+      border-radius: 28px;
+      box-shadow: 0 24px 70px rgba(201, 107, 143, 0.14);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thank-you-card::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(224, 126, 168, 0.28), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .thank-you-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 107, 143, 0.12);
+      color: var(--vinho);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .thank-you-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .thank-you-brand img {
+      width: 54px;
+      height: auto;
+      border-radius: 16px;
+      background: var(--rosa);
+      padding: 8px;
+      box-shadow: 0 10px 20px rgba(234, 81, 136, 0.16);
+    }
+
+    .thank-you-brand span {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--vinho);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .thank-you-card h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--ameixa);
+      margin-bottom: 16px;
+      max-width: 760px;
+    }
+
+    .thank-you-card p {
+      font-size: 1.06rem;
+      line-height: 1.8;
+      color: var(--cinza-quente);
+      max-width: 760px;
+      margin-bottom: 18px;
+    }
+
+    .thank-you-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 28px 0 24px;
+    }
+
+    .tracking-card {
+      border-top: 1px solid var(--linha);
+      padding-top: 24px;
+      margin-top: 8px;
+    }
+
+    .tracking-card h2 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--vinho);
+    }
+
+    .tracking-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tracking-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--creme);
+      border: 1px solid rgba(201, 107, 143, 0.12);
+      font-size: 0.95rem;
+    }
+
+    .tracking-item strong {
+      color: var(--vinho);
+    }
+
+    .tracking-empty {
+      color: var(--cinza-quente);
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--creme);
+      border: 1px dashed rgba(201, 107, 143, 0.25);
+    }
+
+    @media (max-width: 700px) {
+      .thank-you-shell { padding: 70px 16px 56px; }
+      .thank-you-card { padding: 24px; }
+      .tracking-item { flex-direction: column; }
+    }
+  </style>
+</head>
+<body class="thank-you-page">
+  <main class="thank-you-shell">
+    <section class="thank-you-card">
+      <div class="thank-you-badge">✅ Obrigada por chegar até aqui</div>
+      <div class="thank-you-brand">
+        <img src="imagens/logo.png" alt="Plataforma Rosa">
+        <span>Plataforma Rosa</span>
+      </div>
+
+      <h1>Seu próximo passo para crescer com profundidade bíblica começou!</h1>
+      <p>
+        Recebemos seu interesse e estamos felizes em te acompanhar neste momento. Aqui você pode entrar no grupo dos participantes, continuar a jornada e acompanhar tudo o que vem a seguir.
+      </p>
+
+      <div class="thank-you-actions">
+        <a id="group-link" class="btn btn-primary" href="#" target="_blank" rel="noreferrer">
+          Entrar no grupo dos participantes <span class="btn-arrow">→</span>
+        </a>
+        <a href="./plataforma-rosa.html" class="btn btn-white">Voltar para a página inicial</a>
+      </div>
+      <p id="redirect-note" style="color: var(--cinza-quente); font-size: 0.98rem; margin-top: 12px; max-width: 720px;">
+        Redirecionando automaticamente para o grupo em até 5 segundos...
+      </p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      // Captura parâmetros relevantes, mas NÃO os exibe diretamente ao lead.
+      const params = new URLSearchParams(window.location.search);
+      const trackedFields = [
+        ['utm_source', 'utm_source'],
+        ['utm_medium', 'utm_medium'],
+        ['utm_campaign', 'utm_campaign'],
+        ['utm_term', 'utm_term'],
+        ['utm_content', 'utm_content'],
+        ['checkout_id', 'checkout_id'],
+        ['transaction_id', 'transaction_id'],
+        ['order_id', 'order_id'],
+        ['lead_id', 'lead_id'],
+        ['product', 'product'],
+        ['plan', 'plan'],
+        ['source', 'source'],
+        ['campaign', 'campaign']
+      ];
+
+      const values = {};
+      trackedFields.forEach(([paramKey, displayKey]) => {
+        const value = params.get(paramKey);
+        if (value) {
+          values[displayKey] = value;
+        }
+      });
+
+      // Envia para dataLayer (GTM/GA4) — útil para rastreamento, sem expor dados na UI.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'thank_you_page_view',
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        lead_tracking: values
+      });
+
+      // Limpa a barra de endereço removendo os parâmetros sensíveis.
+      if (window.history && window.history.replaceState) {
+        const cleanUrl = window.location.pathname + window.location.hash;
+        try { window.history.replaceState({}, '', cleanUrl); } catch (e) { /* ignore */ }
+      }
+
+      // Mostra apenas uma mensagem genérica na UI (sem valores sensíveis).
+      const list = document.getElementById('tracking-list');
+      if (list) {
+        list.innerHTML = '';
+        const item = document.createElement('li');
+        item.className = 'tracking-empty';
+        item.textContent = 'Dados recebidos com sucesso. Seus dados foram registrados com segurança.';
+        list.appendChild(item);
+      }
+
+      // Botão do grupo (usamos a URL sem os parâmetros sensíveis)
+      const groupLink = document.getElementById('group-link');
+      const groupUrl = params.get('group_url') || 'https://chat.whatsapp.com/BSjWwFNaqvq8GKzXB6oe5B';
+      groupLink.href = groupUrl;
+
+      const redirectNote = document.getElementById('redirect-note');
+      const countdownSeconds = 5;
+      let remaining = countdownSeconds;
+
+      if (redirectNote) {
+        redirectNote.textContent = `Redirecionando automaticamente para o grupo em ${remaining} segundos...`;
+      }
+
+      const intervalId = setInterval(() => {
+        remaining -= 1;
+        if (redirectNote) {
+          redirectNote.textContent = `Redirecionando automaticamente para o grupo em ${remaining} segundos...`;
+        }
+        if (remaining <= 0) {
+          clearInterval(intervalId);
+          window.location.href = groupUrl;
+        }
+      }, 1000);
+    })();
+  </script>
+</body>
+</html>
